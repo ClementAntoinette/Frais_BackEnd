@@ -1,0 +1,54 @@
+<?php
+
+namespace NF\NotefraisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * NfUtilisateurUsr
+ *
+ * @ORM\Table(name="nf_utilisateur_usr")
+ * @ORM\Entity
+ */
+class NfUtilisateurUsr
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $usrId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usr_nom", type="string", length=50, nullable=false)
+     */
+    private $usrNom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usr_prenom", type="string", length=50, nullable=false)
+     */
+    private $usrPrenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usr_genre", type="string", length=10, nullable=false)
+     */
+    private $usrGenre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usr_mail", type="string", length=70, nullable=false)
+     */
+    private $usrMail;
+
+
+}
+

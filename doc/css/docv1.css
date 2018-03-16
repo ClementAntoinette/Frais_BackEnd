@@ -1,0 +1,114 @@
+﻿html, body {
+    height: 100%;
+}
+
+body header {
+    box-shadow: 0px 1.5px rgba(0,0,0,0.5);
+    z-index: 10;
+    height: 70px;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    background-color:  #00897b ;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+body #right-wrapper nav {
+    position: fixed;
+    padding-top: 75px;
+    box-shadow: 1.75px 0px rgba(0,0,0,0.5); 
+    height: 100vh;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: #e0e0e0;
+}
+
+body #right-wrapper nav ul h4{
+    text-align: center;
+}
+
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu a {
+  display: block;
+  background-color: #e0e0e0;
+  text-decoration: none;
+  padding: 10px;
+  color: #000;
+}
+
+.mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+.submenu a {
+  background-color: #ccc;
+}
+
+.submenu a:hover {
+  background-color: #aaa;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all .5s ease-out;
+}
+
+body #right-wrapper main {
+    padding: 0;
+    padding-top: 70px;
+}
+
+body #right-wrapper main section {
+    padding: 20px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.75);
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.title {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    padding: 5px;
+    padding-bottom: 0;
+}
+
+main div div h1 {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+.doc {
+    background-color: rgb(31, 31, 31);
+    margin-top: -28px;
+    margin-bottom: -20px;
+    color: white;
+    padding-top: 28px;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    body #right-wrapper nav {
+        display: none;
+    } 
+
+    body header h1 {
+        font-size: 2rem;
+    }
+}

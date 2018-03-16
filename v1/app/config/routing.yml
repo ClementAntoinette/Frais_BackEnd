@@ -1,0 +1,7 @@
+nf_notefrais:
+    resource: "@NFNotefraisBundle/Resources/config/routing.yml"
+    prefix:   /mesfrais
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

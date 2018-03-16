@@ -1,0 +1,174 @@
+nf_notefrais_requeteoption:
+    path:     /*
+    defaults: { _controller: NFNotefraisBundle:Note:requeteoption }
+    methods: [OPTIONS]
+
+############
+nf_notefrais_homepage:
+    path:     /
+    defaults: { _controller: NFNotefraisBundle:Note:index }
+    methods: [GET]
+    
+############          CHECK DU MODULE LOGIN API SSO
+
+nf_notefrais_log:
+    path:     /log/{login}/{pwd}
+    defaults: { _controller: NFNotefraisBundle:Note:log }
+    methods: [GET]
+
+############          METHODES GET UTLISATEURS
+
+############          AFFICHE TOUS LES UTILISATEURS
+nf_notefrais_users:
+    path:     /users/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:users }
+    methods: [GET]
+    
+############          AFFICHE UN UTILISATEUR EN FONCTION DE SON ID
+
+nf_notefrais_user:
+    path:     /users/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:user }
+    methods: [GET]
+    
+
+############          METHODES GET NOTES  
+
+############          AFFICHE TOUTES LES NOTES
+nf_notefrais_notes:
+    path:     /notes/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:notes }
+    methods: [GET]
+    
+    
+############           AFFICHE UNE NOTE EN FONCTION DE SON ID
+    
+nf_notefrais_note:
+    path:     /notes/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:note }
+    methods: [GET]
+
+############          METHODES GET FRAIS
+
+############          AFFICHE TOUS LES FRAIS
+
+nf_notefrais_frais:
+    path:     /frais/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:frais }
+    methods: [GET]
+
+############          AFFICHE UN FRAIS EN FONCTION DE SON ID
+
+nf_notefrais_unfrais:
+    path:     /frais/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:unfrais }
+    methods: [GET]
+
+############          METHODES GET TYPES
+
+############          AFFICHE TOUS LES TYPES DE FRAIS
+
+nf_notefrais_types:
+    path:     /types/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:types }
+    methods: [GET]
+    
+############          AFFICHE UN TYPE EN FONCTION DE SON ID
+    
+nf_notefrais_type:
+    path:     /types/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:type }
+    methods: [GET]
+
+
+############          METHODES POST 
+############          CREER UNE NOTE
+
+nf_notefrais_ajoutnote:
+    path:     /notes/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:ajoutnote }
+    methods: [POST]
+    
+############           CREER UN FRAIS
+
+nf_notefrais_ajoutfrais:
+    path:     /frais/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:ajoutfrais }
+    methods: [POST]
+
+############           CREER UN UTILISATEUR
+
+nf_notefrais_ajoutuser:
+    path:     /ajoutuser
+    defaults: { _controller: NFNotefraisBundle:Note:ajoutuser }
+    methods: [POST]
+
+############           CREER UN TYPE DE FRAIS
+
+nf_notefrais_ajouttype:
+    path:     /types/{token}
+    defaults: { _controller: NFNotefraisBundle:Note:ajouttype }
+    methods: [POST]
+
+############          METHODES DELETE
+############          SUPPRIMER UN FRAIS
+
+nf_notefrais_suppfrais:
+    path:     /frais/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:suppfrais }
+    methods: [DELETE, OPTIONS]
+    
+############          SUPPRIMER UN UTILISATEUR
+
+nf_notefrais_suppuser:
+    path:     /suppuser/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:suppuser }
+    methods: [DELETE, OPTIONS]    
+
+############          SUPPRIMER UNE NOTE
+
+nf_notefrais_suppnote:
+    path:     /notes/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:suppnote }
+    methods: [DELETE, OPTIONS]
+    
+############          SUPPRIMER UNE TYPE DE FRAIS
+
+nf_notefrais_deletetype:
+    path:     /types/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:deletetype }
+    methods: [DELETE, OPTIONS]
+    
+    
+############          METHODES PUT
+############          MODIFIER UNE NOTE
+
+nf_notefrais_updatenote:
+    path:     /notes/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:updatenote }
+    methods: [PUT, OPTIONS]
+
+############          MODIFIER UN FRAIS
+
+nf_notefrais_updatefrais:
+    path:     /frais/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:updatefrais }
+    methods: [PUT, OPTIONS]
+
+
+
+############          ROUTES COMPLEMENTAIRES
+
+############          GET PERMET DE SELECTIONNER TOUTES LES NOTES D UN USER EN PARTICULIER
+
+nf_notefrais_usernotes:
+    path:     /usernotes/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:usernotes }
+    methods: [GET]
+    
+############          GET PERMET DE RECUPERER TOUS LES FRAIS D UNE NOTE
+
+nf_notefrais_notefrais:
+    path:     /notefrais/{token}/{id}
+    defaults: { _controller: NFNotefraisBundle:Note:notefrais }
+    methods: [GET]

@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>API documentation</title>
+
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="./css/prism.css">
+  <!-- // Prism CSS -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+  <!-- // Bootstrap CSS -->
+  
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="http://www.icone-png.com/png/20/19741.png" />
+  <!-- // favicon -->
+
+  <!-- Personal CSS -->
+  <link rel="stylesheet" href="./css/docv1.css">
+  <!-- // Personal CSS -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <!-- // Fonts -->
+</head>
+
+<body class="container-fluid">
+  <header class="row">
+    <h1>API Note de Frais</h1>
+  </header>
+  <div id="right-wrapper" class="row">
+    <nav class="navigation hidden-xs-down col-md-2">
+      <ul class="mainmenu">
+        <h4>API endpoints</h4>
+        <hr>
+        <li>
+          <a href="#LOG">Connexion utilisateur</a>
+        </li>
+        <li>
+          <a href="#NOTE">Notes</a>
+          <ul class="submenu">
+            <li>
+              <a  style="color: #155724;" href="#GETnotes">GET</a>
+            </li>
+            <li>
+              <a style="color: #0c5460;" href="#POSTnotes">POST</a>
+            </li>
+            <li>
+              <a style="color: #721c24;" href="#DELETEnotes">DELETE</a>
+            </li>
+            <li>
+              <a style="color: #856404;" href="#PUTnotes">PUT</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#FRAIS">Frais</a>
+          <ul class="submenu">
+            <li>
+              <a style="color: #155724;" href="#GETfrais">GET</a>
+            </li>
+            <li>
+              <a style="color: #0c5460;" href="#POSTfrais">POST</a>
+            </li>
+            <li>
+              <a style="color: #721c24;" href="#DELETEfrais">DELETE</a>
+            </li>
+            <li>
+              <a style="color: #856404;" href="#PUTfrais">PUT</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#TYPE">Types</a>
+          <ul class="submenu">
+            <li>
+              <a style="color: #155724;" href="#GETtypes">GET</a>
+            </li>
+            <li>
+              <a style="color: #0c5460;" href="#POSTtypes">POST</a>
+            </li>
+            <li>
+              <a style="color: #721c24;" href="#DELETEtypes">DELETE</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#NOTEUSR">Notes d'un utilisateur</a>
+        </li>
+        <li>
+          <a href="#NOTEFRAIS">Frais d'une note</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class=' col-12 col-md-10 offset-md-2'>
+      <div>
+
+        <!-- LOG -->
+        <div id="LOG" class="col-12 title">
+          <h1>Connexion Utilisateur</h1>
+        </div>
+
+        <!-- LOG/{login}/{pwd} -->
+        <section class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-success col-3">GET</div>
+            <h2>log/{login}/{pwd}</h2>
+            <p class="col-12">
+              Connexion utilisateur avec la méthode
+              <code>GET</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/log/{login}/{pwd} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"ret": 0,"token": ""} //Le login a échoué
+				        {"ret": 1,"token": "0d4520716134c2dce719e6f9162abfe1"} //Le login a réussi
+              </code>
+            </pre>
+          </article>
+        </section>
+
+
+        <!-- Utilisateurs -->
+        <!--<div id="USER" class="col-12 title">
+          <h1>Utilisateurs</h1>
+        </div> -->
+
+        <!-- USERS/ -->
+        <!--<section class="row">
+          <article class="col-12 col-md-6">
+            <h2>users/{token}</h2>
+            <p>
+              Affiche la liste de tous les utilisateurs avec la méthode <code>GET</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/users/{token} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+              <code class="language-json">
+                [
+                  {
+                    "usr_id": 1,
+                    "usr_nom": "Dupond",
+                    "usr_prenom": "John",
+                    "usr_genre": "M",
+                    "usr_mail": "john.dupond@mail.com"
+                  }
+                ]
+              </code>
+            </pre>
+          </article>
+        </section>-->
+
+        <!--USER/{id}-->
+        <!--<section class="row">
+          <article class="col-12 col-md-6">
+            <h2>users/{token}/{id}</h2>
+            <p>
+              Affiche les informations d'un utilisateur avec la méthode <code>GET</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/users/{token}/{id} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+              <code class="language-json">
+                [
+                  {
+                    "usr_id": 1,
+                    "usr_nom": "Dupond",
+                    "usr_prenom": "John",
+                    "usr_genre": "M",
+                    "usr_mail": "john.dupond@mail.com"
+                  }
+                ]
+              </code>
+            </pre>
+          </article>
+        </section>-->
+
+        <!-- AJOUTUSER/ 
+        <section class="row">
+          <article class="col-12 col-md-6">
+            <h2>ajoutuser/</h2>
+            <p>
+              Ajouter d'un utilisateur avec la méthode
+              <code>POST</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/ajoutuser (POST)
+                </code>
+              </pre>
+            </p>
+            <h5>Valeurs POST</h5>
+            <pre>
+              <code class="language-json">
+                "$_POST['nom']"
+                "$_POST['prenom']"
+                "$_POST['genre']"
+                "$_POST['mail']"
+              </code>
+            </pre>
+          </article>
+        </section>-->
+
+        <!-- SUPPUSER/{id} 
+        <section class="row">
+          <article class="col-12 col-md-6">
+            <h2>suppuser/{id}</h2>
+            <p>
+              Suppression d'un utilisateur avec la méthode
+              <code>DELETE</code> par l'id de celui-ci.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/suppuser/{id} (DELETE)
+                </code>
+              </pre>
+            </p>
+          </article>
+        </section>-->
+
+
+        <!-- Notes -->
+        <div id="NOTE" class="col-12 title">
+          <h1>Notes</h1>
+        </div>
+
+        <!-- NOTES/ -->
+        <section id="GETnotes" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-success col-3">GET</div>
+            <h2>notes/{token}</h2>
+            <p>
+              Affiche la liste des notes avec la méthode
+              <code>GET</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notes/{token} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+              <code class="language-json">
+                [
+                  {
+                    "note_id" : 1,
+                    "note_comment" : "Formation rennes 1",
+                    "note_verrou" : 0,
+                    "note_usr_id" : 13,
+                    "note_date" : "2018-01-12"
+                  }
+                  ...
+                ]
+
+                Sinon 
+                  {"ret":"expired"} //Token invalide
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- NOTES/{id} -->
+        <section class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-success col-3">GET</div>
+            <h2>notes/{token}/{id}</h2>
+            <p>
+              Affiche le détail d'une note avec la méthode
+              <code>GET</code> par son id.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notes/{token}/{id} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+              <code class="language-json">
+                [
+                  {
+                     "note_id" : 1, 
+                     "note_comment" : "Formation rennes 1", 
+                     "note_verrou" : 0, 
+                     "note_usr_id" : 13, 
+                     "note_date" : "2018-01-12"
+                  }
+                ]
+
+                Sinon
+                   {"ret":false} //Si token inconnu
+                   ["Pas de notes"] //Si aucune note 
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- AJOUTNOTE/ -->
+        <section id="POSTnotes" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-info col-3">POST</div>
+            <h2>notes/{token}</h2>
+            <p>
+              Ajouter une note avec la méthode
+              <code>POST</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notes/{token} (POST)
+                </code>
+              </pre>
+            </p>
+            <h5>Valeurs à transmettre</h5>
+            <pre>
+              <code class="language-json">
+                 "$_POST['verrou']" 
+                 "$_POST['comment']" 
+                 "$_POST['date']"
+              </code>
+            </pre>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result" : 10} // Insertion effectuée
+                {"ret" : "expired"} // Token inconnu
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- SUPPNOTE/{id} -->
+        <section id="DELETEnotes" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-danger col-3">DELETE</div>
+            <h2>notes/{token}/{id}</h2>
+            <p>
+              Suppression d'une note avec la méthode
+              <code>DELETE</code> par l'id de celui-ci.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notes/{token}/{id} (DELETE)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result":"true"} // Suppression effectuée
+				        {"result":"false"} // Suppression non effectuée				
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- UPDATENOTE/ -->
+        <section id="PUTnotes" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-warning col-3">PUT</div>
+            <h2>notes/{token}/{id}</h2>
+            <p>
+              Modification d'une note avec la méthode
+              <code>PUT</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notes/{token}/{id} (PUT)
+                </code>
+              </pre>
+            </p>
+            <h5>Valeurs à transmettre</h5>
+            <pre>
+              <code class="language-json">
+                "$_GET['verrou']"
+                "$_GET['comment']"
+                "$_GET['date']"
+              </code>
+            </pre>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result":"true"} // Mise à jour effectuée
+				        {"result":"false"} // Mise à jour non effectuée
+				        {"result":"Token inconnu"} // Token inconnu
+              </code>
+            </pre>
+          </article>
+        </section>
+
+
+        <!-- Frais -->
+        <div id="FRAIS" class="col-12 title">
+          <h1>Frais</h1>
+        </div>
+
+        <!-- FRAIS/{token} -->
+        <section id="GETfrais" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-success col-3">GET</div>
+            <h2>frais/{token}</h2>
+            <p>
+              Affiche la liste des frais avec la méthode
+              <code>GET</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/frais/{token} (GET)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+              <code class="language-json">
+                [
+                  {
+                    "frais_id":	1,
+                    "frais_comment":	"Gazole",
+                    "frais_montant":	15.25,
+                    "frais_id_note":	1,
+                    "frais_id_type":	2
+                  }
+                  ...
+                ]
+
+                Sinon 
+                  {"ret":"expired"} //Token invalide
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- FRAIS/{token}/{id} -->
+        <section class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-success col-3">GET</div>
+            <h2>frais/{token}/{id}</h2>
+            <p>
+              Affiche un frais avec la méthode
+              <code>GET</code> par son id.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+              <code class="language-json">
+                http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/frais/{token}/{id} (GET)
+              </code>
+            </pre>
+            </p>
+            <h5>Exemple de réponse</h5>
+            <pre>
+            <code class="language-json">
+              [ 
+                { 
+                  "frais_id": 1, 
+                  "frais_comment": "Gazole", 
+                  "frais_montant": 15.25, 
+                  "frais_id_note": 1, 
+                  "frais_id_type": 2 
+                }
+              ] 
+              
+              Sinon
+                {"ret":"expired"} //Token invalide
+            </code>
+          </pre>
+          </article>
+        </section>
+
+        <!-- AJOUTFRAIS/ -->
+        <section id="POSTfrais" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-info col-3">POST</div>
+            <h2>frais/{token}</h2>
+            <p>
+              Ajouter un frais avec la méthode <code>POST</code>. 
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/frais/{token} (POST)
+                </code>
+              </pre>
+            </p>
+            <h5>Valeurs à transmettre</h5>
+            <pre>
+              <code class="language-json">
+                "$_POST['commentFrais']"
+                "$_POST['montantFrais']"
+                "$_POST['idNote']"
+                "$_POST['idType']"
+              </code>
+            </pre>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result":"true"} // Ajout effectué
+				        {"result":"false"} // Ajout non effectué
+			  </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- SUPPFRAIS/{token}/{id} -->
+        <section id="DELETEfrais" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-danger col-3">DELETE</div>
+            <h2>frais/{token}/{id}</h2>
+            <p>
+              Suppression d'un frais avec la méthode
+              <code>DELETE</code> par l'id de celui-ci.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/frais/{token}/{id} (DELETE)
+                </code>
+              </pre>
+            </p>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result":"true"} // Suppression effectuée
+				        {"result":"false"} // Suppression non effectuée				
+              </code>
+            </pre>
+          </article>
+        </section>
+
+        <!-- UPDATEFRAIS/ -->
+        <section id="PUTfrais" class="row">
+          <article class="col-12 col-md-6">
+            <div class="alert alert-warning col-3">PUT</div>
+            <h2>frais/{token}/{id}</h2>
+            <p>
+              Modification d'un frais avec la méthode
+              <code>PUT</code>.
+            </p>
+          </article>
+          <article class="col-12 col-md-6 doc">
+            <h4>API endpoint</h4>
+            <p>
+              <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/frais/{token}/{id} (PUT)
+                </code>
+              </pre>
+            </p>
+            <h5>Valeurs à transmettre</h5>
+            <pre>
+              <code class="language-json">
+                "$_GET['commentFrais']"
+                "$_GET['montantFrais']"
+                "$_GET['idNote']"
+                "$_GET['idType']"
+              </code>
+            </pre>
+            <h5>Exemples de réponse</h5>
+            <pre>
+              <code class="language-json">
+                {"result":"true"} // Mise à jour effectuée
+				        {"result":"false"} // Mise à jour non effectuée				
+              </code>
+            </pre>
+          </article>
+        </section>
+      </div>
+
+
+      <!-- Types -->
+      <div id="TYPE" class="col-12 title">
+        <h1>Types</h1>
+      </div>
+
+      <!-- TYPES/ -->
+      <section id="GETtypes" class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-success col-3">GET</div>
+          <h2>types/{token}</h2>
+          <p>
+            Affiche la liste des types de frais avec la méthode
+            <code>GET</code>.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/types/{token} (GET)
+                </code>
+              </pre>
+          </p>
+          <h5>Exemple de réponse</h5>
+          <pre>
+              <code class="language-json">
+                [
+                  {
+                    "type_id":	1,
+                    "type_nom":	"Restaurant"
+                  }
+                  ...
+                ]
+
+                Sinon
+                  {"ret":"expired"} //Token invalide
+              </code>
+            </pre>
+        </article>
+      </section>
+
+      <!-- TYPES/{id} -->
+      <section class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-success col-3">GET</div>
+          <h2>types/{token}/{id}</h2>
+          <p>
+            Affiche un type de frais avec la méthode
+            <code>GET</code> par son id.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/types/{token}/{id} (GET)
+                </code>
+              </pre>
+          </p>
+          <h5>Exemple de réponse</h5>
+          <pre>
+              <code class="language-json">
+                [ 
+                  { 
+                    "type_id": 1,
+                    "type_nom": "Restaurant" 
+                  } 
+                ]
+                
+                Sinon  
+                  {"ret":"expired"} //Token invalide
+              </code>
+            </pre>
+        </article>
+      </section>
+
+      <!-- AJOUTTYPE/ -->
+      <section id="POSTtypes" class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-info col-3">POST</div>
+          <h2>types/{token}</h2>
+          <p>
+            Ajouter un type de frais avec la méthode
+            <code>POST</code>.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+              <code class="language-json">
+                http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/types/{token} (POST)
+              </code>
+            </pre>
+          </p>
+          <h5>Valeurs à transmettre</h5>
+          <pre>
+              <code class="language-json">
+                "$_POST['type']"
+              </code>
+            </pre>
+          <h5>Exemples de réponse</h5>
+          <pre>
+            <code class="language-json">
+              {"result":"true"} // Ajout effectué
+              {"result":"false"} // Ajout non effectué
+              {"ret":false} // Token invalide
+			      </code>
+          </pre>
+        </article>
+      </section>
+
+      <!-- TYPES/{id} -->
+      <section id="DELETEtypes" class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-danger col-3">DELETE</div>
+          <h2>types/{token}/{id}</h2>
+          <p>
+            Suppression d'un type avec la méthode
+            <code>DELETE</code> par l'id de celui-ci.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+              <code class="language-json">
+                http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/types/{token}/{id} (DELETE)
+              </code>
+            </pre>
+          </p>
+          <h5>Exemples de réponse</h5>
+          <pre>
+            <code class="language-json">
+              {"result":"true"} // Suppression effectuée
+              {"result":"false"} // Suppression non effectuée				
+            </code>
+          </pre>
+        </article>
+      </section>
+
+
+      <!-- USERNOTES -->
+      <div id="NOTEUSR" class="col-12 title">
+        <h1>Notes d'un utilisateur</h1>
+      </div>
+
+      <!-- USERNOTES/{token} -->
+      <section id="GETusrnotes" class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-success col-3">GET</div>
+          <h2>usernotes/{token}/{id}</h2>
+          <p>
+            Affiche la liste des notes de frais d'un utilisateur avec la méthode
+            <code>GET</code> par son token.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+              <code class="language-json">
+                http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/usernotes/{token}/{id} (GET)
+              </code>
+            </pre>
+          </p>
+          <h5>Exemple de réponse</h5>
+          <pre>
+              <code class="language-json">
+                [
+                  {
+                    "note_id":	1,
+                    "note_comment":	"Formation",
+                    "note_verrou":	0,
+                    "note_usr_id":	1,
+                    "note_date":	"2018-01-16"
+                  }
+                ]
+
+                Sinon 
+                  {"ret":false} //Si token inconnu 
+                  ["Pas de notes"] //Si aucune note
+              </code>
+            </pre>
+        </article>
+      </section>
+
+
+      <!-- NOTEFRAIS -->
+      <div id="NOTEFRAIS" class="col-12 title">
+        <h1>Frais d'une note</h1>
+      </div>
+
+      <!-- NOTEFRAIS/{id} -->
+      <section id="GETnotefr" class="row">
+        <article class="col-12 col-md-6">
+          <div class="alert alert-success col-3">GET</div>
+          <h2>notefrais/{token}/{id}</h2>
+          <p>
+            Affiche la liste des frais d'une note avec la méthode
+            <code>GET</code> par l'id de de la note.
+          </p>
+        </article>
+        <article class="col-12 col-md-6 doc">
+          <h4>API endpoint</h4>
+          <p>
+            <pre>
+                <code class="language-json">
+                  http://etudiant12.chezmeme.com/rest/v1/web/mesfrais/notefrais/{token}/{id} (GET)
+                </code>
+              </pre>
+          </p>
+          <h5>Exemple de réponse</h5>
+          <pre>
+              <code class="language-json">
+                [
+                  {
+                    "frais_id":	1,
+                    "frais_comment":	"Gazole",
+                    "frais_montant":	15.25,
+                    "frais_id_note":	1,
+                    "frais_id_type":	2,
+                    "note_id":	1,
+                    "note_comment":	"Formation",
+                    "note_verrou":	0,
+                    "note_usr_id":	1,
+                    "note_date":	"2018-01-16"
+                  }
+                ]
+
+                Sinon 
+                  ["Pas de frais"]
+                  {"ret":false} //Si token inconnu
+              </code>
+            </pre>
+        </article>
+      </section>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+    crossorigin="anonymous"></script>
+  <!-- // Bootstrap JS -->
+  <!-- Prism JS -->
+  <script type="text/javascript" src="./js/prism.js"></script>
+  <!-- // Prism JS -->
+  </main>
+  </div>
+</body>
+
+</html>

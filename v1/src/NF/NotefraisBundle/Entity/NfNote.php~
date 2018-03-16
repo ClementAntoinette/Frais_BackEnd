@@ -1,0 +1,61 @@
+<?php
+
+namespace NF\NotefraisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * NfNote
+ *
+ * @ORM\Table(name="nf_note")
+ * @ORM\Entity
+ */
+class NfNote
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $noteId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="note_comment", type="string", length=500, nullable=false)
+     */
+    private $noteComment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="note_code_pin", type="string", length=6, nullable=false)
+     */
+    private $noteCodePin;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="note_verrou", type="boolean", nullable=false)
+     */
+    private $noteVerrou;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note_usr_id", type="integer", nullable=false)
+     */
+    private $noteUsrId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="note_date", type="date", nullable=false)
+     */
+    private $noteDate;
+
+
+}
+
