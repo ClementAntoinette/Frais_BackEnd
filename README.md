@@ -3,4 +3,4 @@ Pour consulter la documention de l'API suivez ce lien : http://etudiant12.chezme
 
 #### INSTALLATION ####
 
-Le fichier d'installation se trouve dans le répertoire GIT
+Le fichier d'installation se trouve dans le répertoire GIT dans le dossier "Installation".
